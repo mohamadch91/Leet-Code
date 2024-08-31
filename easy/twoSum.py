@@ -1,9 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        answer = []
+        # define a dictionary for saving each number in the list and its index
+        dict ={}
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    answer.append(i)
-                    answer.append(j)
-                    return answer
+            diff = target - nums[i]
+            # if we saw the diffrence 
+            if(diff in dict):
+                # return index of diffrence and i
+                return [dict[diff],i]
+            # save the index
+            dict[nums[i]] = i

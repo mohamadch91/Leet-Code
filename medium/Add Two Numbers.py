@@ -3,44 +3,43 @@ class ListNode:
         self.val = val
         self.next = next
 class Solution:
-    def find_last (self,first):
-        temp = first
-        back_pointer =first
-        while (temp.next != None):
-            temp =temp.next
-            back_pointer =temp
-        return back_pointer
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        first_int =0
-        l1_first = l1
-        counter=0
-        while l1_first != None:
-            first_int+= l1_first.val * (10 ** counter)
-            counter +=1
-            l1_first = l1_first.next
-        counter =0
-        second_int =0
-        l2_first = l2
-        while l2_first != None:
-            second_int+= l2_first.val * (10 ** counter)
-            counter+=1
-            l2_first = l2_first.next
+        # create empty link list
+        answer= ListNode (val=0 ,next=None)
+        # save for return
+        answer_first = answer
+        # variable for save carry value of each sum
+        addition =0
+        while (addition !=0 or l1 != None or l2 !=None):
+            first_num =0
+            # check if first array is not None
+            if(l1):
+                first_num = l1.val
+            second_num = 0
+            # check for second array
+            if(l2):
+                second_num =l2.val
+            # do some with carry
+            sum =first_num +second_num +addition
+            new_value = sum%10
+            addition = sum //10
+            # create new ListNode with sum value
+            answer_first.next = ListNode(val=new_value,next=None)
+            answer_first = answer_first.next
+            # iterate over lists
+            if(l1):
+                l1 = l1.next
+            if(l2):
+                l2 = l2.next
+            
+        return answer.next
+
         
+            
         
-        sum =first_int +second_int
-        first_answer= ListNode (val=0 ,next=None)
-        counter =0
-        while sum >0:
-            mod = sum%10
-            sum = sum//10
-            if(counter == 0):
-                first_answer.val =mod
-            else:
-                node = self.find_last(first_answer)
-                node.next = ListNode(val=mod,next=None)
-                
-            counter+=1
-        return first_answer
+            
+
+        
     
    
         

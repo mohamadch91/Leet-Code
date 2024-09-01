@@ -1,6 +1,8 @@
 def romanToInt( s: str) -> int:
         # define dict
-        # better than best solution on leet code
+        # better than best solution on leet code ( same for test case with no substraction)
+        # more space complextity
+
         my_dict ={
             "I": 1,
             "IV" : 4,

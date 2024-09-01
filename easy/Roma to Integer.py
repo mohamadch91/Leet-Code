@@ -1,5 +1,6 @@
 def romanToInt( s: str) -> int:
         # define dict
+        # better than best solution on leet code
         my_dict ={
             "I": 1,
             "IV" : 4,
@@ -33,5 +34,5 @@ def romanToInt( s: str) -> int:
                 last_index+=1
             
         return sum
-print(romanToInt("LVIII"))
+print(romanToInt("MCMXCIV"))
             

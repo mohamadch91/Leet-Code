@@ -1,4 +1,4 @@
-strs = ["ab", "a"]
+strs = ["flower", "flow","fliw"]
 common =""
 for i in range(len(strs[0])):
     flag = False

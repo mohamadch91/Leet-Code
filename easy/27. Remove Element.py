@@ -1,14 +1,21 @@
 def removeElement( nums, val: int) -> int:
     k=0
-    len_nums= len(nums)
+    j_arr=[]
     for i in range(len(nums)):
-        if(nums[i]==val):
+        if(i in j_arr):
+            continue
+        if(nums[i]!=val):
             k+=1
-            j=len(nums)
-            while nums[j]==val:
+        if(nums[i]==val ):
+            j=len(nums)-1
+            while nums[j]==val and j>i:
+                j_arr.append(j)
                 j-=1
-            nums[i]=nums[j]
-    print(nums)
+            if(nums[j]!=val):
+                k+=1
+                nums[i]=nums[j]
+                nums[j]=val
+
     return k
 
 removeElement([3,2,2,3],3)
